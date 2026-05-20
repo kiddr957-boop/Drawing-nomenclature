@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RRP-CRG — Drawing Structure | RiverRidge Recycling</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:ital,wght@0,300;0,600;0,900;1,300&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:    #1a2e4a;
+    --navy2:   #243d62;
+    --steel:   #3a5a8c;
+    --sky:     #d6e8f7;
+    --ice:     #eef5fb;
+    --amber:   #c47c14;
+    --amber-l: #fdf0d8;
+    --green:   #2d6a3f;
+    --green-l: #e5f2ea;
+    --coral:   #b03a2e;
+    --coral-l: #faeae8;
+    --teal:    #1a6e5c;
+    --teal-l:  #e3f4f0;
+    --purple:  #4a3d9e;
+    --purple-l:#edeafd;
+    --grey:    #5c6370;
+    --grey-l:  #f0eff7;
+    --orange:  #c05c10;
+    --orange-l:#fdeee5;
+    --white:   #ffffff;
+    --bg:      #f4f7fb;
+    --rule:    #c8d5e8;
+    --text:    #1a2e4a;
+    --muted:   #6b7a90;
+    --mono:    'DM Mono', monospace;
+    --sans:    'Outfit', sans-serif;
+    --serif:   'Fraunces', serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 0 0 80px;
+  }
+
+  /* ── HEADER ── */
+  .page-header {
+    background: var(--navy);
+    padding: 36px 48px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(58,90,140,0.4) 0%, transparent 70%);
+  }
+  .page-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #c47c14, #3a5a8c, #1a6e5c);
+  }
+  .header-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: rgba(214,232,247,0.6);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .header-title {
+    font-family: var(--serif);
+    font-size: 38px;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+  .header-title strong { font-weight: 900; color: #d6e8f7; }
+  .header-sub {
+    font-size: 14px;
+    color: rgba(214,232,247,0.7);
+    font-weight: 300;
+    margin-top: 10px;
+  }
+  .header-meta {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  .meta-pill {
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(214,232,247,0.25);
+    color: rgba(214,232,247,0.8);
+    letter-spacing: 0.5px;
+  }
+  .meta-pill.warn { border-color: rgba(196,124,20,0.5); color: #f5c96d; }
+
+  /* ── MAIN LAYOUT ── */
+  .page-body {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 32px;
+  }
+
+  /* ── COMPANY TIER ── */
+  .tier-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+    padding-left: 4px;
+  }
+
+  .company-card {
+    background: var(--navy);
+    border-radius: 14px;
+    padding: 22px 28px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 6px;
+    position: relative;
+  }
+  .company-badge {
+    font-family: var(--mono);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--white);
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 10px;
+    padding: 8px 16px;
+    letter-spacing: 2px;
+    white-space: nowrap;
+  }
+  .company-info h2 {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 3px;
+  }
+  .company-info p {
+    font-size: 13px;
+    color: rgba(214,232,247,0.65);
+    font-weight: 300;
+  }
+
+  /* ── CONNECTOR ── */
+  .connector {
+    width: 2px;
+    background: var(--rule);
+    margin: 0 auto;
+    position: relative;
+  }
+  .connector::after {
+    content: '▼';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--rule);
+    font-size: 10px;
+  }
+
+  .conn-v { height: 24px; width: 2px; background: var(--rule); margin: 0 auto; }
+  .conn-v-short { height: 14px; width: 2px; background: var(--rule); margin: 0 auto; }
+
+  /* ── SITES ROW ── */
+  .sites-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+
+  .site-card {
+    border-radius: 12px;
+    padding: 16px 18px;
+    border: 1.5px solid;
+    position: relative;
+    cursor: default;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .site-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,46,74,0.12); }
+
+  .site-card.main {
+    background: var(--sky);
+    border-color: var(--steel);
+  }
+  .site-card.adhoc {
+    background: var(--amber-l);
+    border-color: var(--amber);
+  }
+  .site-card.nostruct {
+    background: var(--coral-l);
+    border-color: var(--coral);
+  }
+
+  .site-code {
+    font-family: var(--mono);
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .site-card.main .site-code { color: var(--navy); }
+  .site-card.adhoc .site-code { color: var(--amber); }
+  .site-card.nostruct .site-code { color: var(--coral); }
+
+  .site-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .site-desc {
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 10px;
+  }
+  .site-status {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 1px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .site-card.main .site-status { background: var(--navy); color: var(--white); }
+  .site-card.adhoc .site-status { background: var(--amber); color: var(--white); }
+  .site-card.nostruct .site-status { background: var(--coral); color: var(--white); }
+
+  .site-eg {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    color: var(--muted);
+    margin-top: 8px;
+    display: block;
+  }
+
+  /* ── CRG FOCUS BAND ── */
+  .crg-focus {
+    background: var(--white);
+    border: 1.5px solid var(--rule);
+    border-radius: 16px;
+    padding: 28px 28px 32px;
+    margin-top: 20px;
+    position: relative;
+  }
+  .crg-focus-label {
+    position: absolute;
+    top: -12px;
+    left: 28px;
+    background: var(--navy);
+    color: var(--white);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    padding: 3px 14px;
+    border-radius: 20px;
+  }
+
+  /* ── DRAWING TIERS ── */
+  .drawing-tier {
+    margin-bottom: 6px;
+  }
+
+  /* Tier row = horizontal flex of drawing nodes */
+  .tier-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Single drawing node */
+  .drg-node {
+    border-radius: 10px;
+    padding: 12px 14px;
+    border: 1.5px solid;
+    min-width: 130px;
+    max-width: 160px;
+    flex: 1;
+    position: relative;
+    transition: transform 0.15s, box-shadow 0.15s;
+    cursor: default;
+  }
+  .drg-node:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(26,46,74,0.1);
+    z-index: 2;
+  }
+
+  /* Width variants */
+  .drg-node.wide { min-width: 260px; max-width: 340px; flex: 2; }
+  .drg-node.full { min-width: 100%; max-width: 100%; }
+
+  /* Colour themes */
+  .drg-node.survey   { background: var(--amber-l);  border-color: var(--amber);  }
+  .drg-node.master   { background: var(--sky);       border-color: var(--steel);  }
+  .drg-node.thirdp   { background: var(--coral-l);   border-color: var(--coral);  }
+  .drg-node.civil    { background: var(--green-l);   border-color: var(--green);  }
+  .drg-node.struct   { background: var(--purple-l);  border-color: var(--purple); }
+  .drg-node.arch     { background: var(--teal-l);    border-color: var(--teal);   }
+  .drg-node.mech     { background: var(--sky);       border-color: var(--steel);  }
+  .drg-node.elec     { background: var(--amber-l);   border-color: var(--amber);  }
+  .drg-node.process  { background: var(--purple-l);  border-color: var(--purple); }
+  .drg-node.planning { background: var(--grey-l);    border-color: var(--grey);   }
+  .drg-node.reserved { background: var(--orange-l);  border-color: var(--orange); opacity: 0.9; }
+
+  .drg-number {
+    font-family: var(--mono);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    margin-bottom: 5px;
+    display: block;
+  }
+  .survey   .drg-number { color: var(--amber);  }
+  .master   .drg-number { color: var(--steel);  }
+  .thirdp   .drg-number { color: var(--coral);  }
+  .civil    .drg-number { color: var(--green);  }
+  .struct   .drg-number { color: var(--purple); }
+  .arch     .drg-number { color: var(--teal);   }
+  .mech     .drg-number { color: var(--steel);  }
+  .elec     .drg-number { color: var(--amber);  }
+  .process  .drg-number { color: var(--purple); }
+  .planning .drg-number { color: var(--grey);   }
+  .reserved .drg-number { color: var(--orange); }
+
+  .drg-title {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.35;
+    margin-bottom: 4px;
+  }
+  .drg-sub {
+    font-size: 10px;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.4;
+  }
+
+  .drg-badge {
+    position: absolute;
+    top: -8px;
+    right: 10px;
+    font-family: var(--mono);
+    font-size: 8px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 20px;
+  }
+  .badge-3p       { background: var(--coral);  color: var(--white); }
+  .badge-tier0    { background: var(--amber);  color: var(--white); }
+  .badge-tier1    { background: var(--navy);   color: var(--white); }
+  .badge-reserved { background: var(--orange); color: var(--white); }
+  .badge-issued   { background: var(--green);  color: var(--white); }
+
+  /* ── CONNECTOR LINES (CSS only) ── */
+  .fan-connector {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0;
+    height: 28px;
+    position: relative;
+  }
+  .fan-connector::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: var(--rule);
+  }
+  /* Vertical drops from fan */
+  .fan-drop {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding-top: 0;
+  }
+  .fan-drop::before {
+    content: '';
+    width: 1.5px;
+    height: 28px;
+    background: var(--rule);
+  }
+
+  .sub-fan {
+    height: 22px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  .sub-fan::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 15%;
+    right: 15%;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  /* ── TIER HEADING ── */
+  .tier-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .tier-num {
+    font-family: var(--mono);
+    font-size: 9px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: var(--navy);
+    color: var(--white);
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+  .tier-desc {
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 400;
+    font-style: italic;
+  }
+  .tier-rule {
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  /* ── LEGEND ── */
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+    padding: 18px 22px;
+    background: var(--white);
+    border-radius: 12px;
+    border: 1px solid var(--rule);
+    margin-top: 28px;
+  }
+  .legend-title {
+    width: 100%;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    color: var(--text);
+  }
+  .legend-swatch {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    border: 1.5px solid;
+    flex-shrink: 0;
+  }
+
+  /* ── FOOTER ── */
+  .page-footer {
+    margin-top: 36px;
+    padding: 16px 22px;
+    background: var(--navy);
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .footer-left {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: rgba(214,232,247,0.6);
+    letter-spacing: 0.5px;
+  }
+  .footer-right {
+    font-size: 11px;
+    color: rgba(214,232,247,0.5);
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .animate { animation: fadeUp 0.5s ease both; }
+  .delay-1 { animation-delay: 0.08s; }
+  .delay-2 { animation-delay: 0.16s; }
+  .delay-3 { animation-delay: 0.24s; }
+  .delay-4 { animation-delay: 0.32s; }
+  .delay-5 { animation-delay: 0.40s; }
+  .delay-6 { animation-delay: 0.48s; }
+  .delay-7 { animation-delay: 0.56s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .page-header { padding: 24px 20px 22px; }
+    .header-title { font-size: 26px; }
+    .page-body { padding: 24px 16px; }
+    .sites-row { grid-template-columns: repeat(2, 1fr); }
+    .drg-node { min-width: 100px; }
+    .drg-node.wide { min-width: 180px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── PAGE HEADER ── -->
+<header class="page-header">
+  <div class="header-eyebrow">Drawing Structure &amp; Hierarchy</div>
+  <h1 class="header-title"><strong>RiverRidge Recycling</strong><br>(Portadown) Ltd</h1>
+  <p class="header-sub">Craigmore Road Biodrying Facility &nbsp;·&nbsp; Drawing register &amp; XRef structure</p>
+  <div class="header-meta">
+    <span class="meta-pill">RRP-CRG-CAD-STD-001 Rev C</span>
+    <span class="meta-pill">Drawing Register: RRP-CRG-CAD-REG-001</span>
+    <span class="meta-pill">May 2026</span>
+    <span class="meta-pill warn">⚠ M-PP-001 · M-SC-001 Reserved — pending WTT scope</span>
+  </div>
+</header>
+
+<div class="page-body">
+
+  <!-- ── COMPANY TIER ── -->
+  <div class="tier-label animate">Company</div>
+  <div class="company-card animate delay-1">
+    <div class="company-badge">RRP</div>
+    <div class="company-info">
+      <h2>RiverRidge Recycling (Portadown) Ltd</h2>
+      <p>Drawing number prefix RRP &nbsp;·&nbsp; Four sites &nbsp;·&nbsp; Format: RRP-[SITE]-[DISC]-[TYPE]-[SEQ]</p>
+    </div>
+  </div>
+
+  <div class="conn-v animate delay-2"></div>
+
+  <!-- ── SITES TIER ── -->
+  <div class="tier-label animate delay-2">Sites</div>
+  <div class="sites-row animate delay-2">
+    <div class="site-card main">
+      <div class="site-code">CRG</div>
+      <div class="site-name">Craigmore Road</div>
+      <div class="site-desc">New biodrying facility</div>
+      <span class="site-status">Main project</span>
+      <span class="site-eg">RRP-CRG-C-GA-001</span>
+    </div>
+    <div class="site-card adhoc">
+      <div class="site-code">PTD</div>
+      <div class="site-name">Portadown</div>
+      <div class="site-desc">Existing operations</div>
+      <span class="site-status">Ad hoc — migrate</span>
+      <span class="site-eg">RRP-PTD-C-GA-001</span>
+    </div>
+    <div class="site-card adhoc">
+      <div class="site-code">MYD</div>
+      <div class="site-name">Maydown</div>
+      <div class="site-desc">Existing operations</div>
+      <span class="site-status">Ad hoc — migrate</span>
+      <span class="site-eg">RRP-MYD-C-GA-001</span>
+    </div>
+    <div class="site-card nostruct">
+      <div class="site-code">MLK</div>
+      <div class="site-name">Mallusk</div>
+      <div class="site-desc">Existing operations</div>
+      <span class="site-status">No structure — build</span>
+      <span class="site-eg">RRP-MLK-C-GA-001</span>
+    </div>
+  </div>
+
+  <!-- ── CRG DRAWING STRUCTURE ── -->
+  <div class="crg-focus animate delay-3">
+    <span class="crg-focus-label">CRAIGMORE ROAD — DRAWING STRUCTURE</span>
+
+    <!-- TIER 0 -->
+    <div class="drawing-tier" style="margin-top:16px;">
+      <div class="tier-heading">
+        <span class="tier-num">TIER 0</span>
+        <span class="tier-desc">Base data — never hosts an XRef. Read-only reference for all drawings above.</span>
+        <div class="tier-rule"></div>
+      </div>
+      <div class="tier-row">
+        <div class="drg-node survey wide">
+          <div class="drg-badge badge-tier0">BASE</div>
+          <span class="drg-number">RRP-CRG-SY-GA-001</span>
+          <div class="drg-title">OS Survey &amp; Site Base</div>
+          <div class="drg-sub">OS mapping · site boundary · topographic survey · existing features</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="conn-v"></div>
+
+    <!-- TIER 1 -->
+    <div class="drawing-tier">
+      <div class="tier-heading">
+        <span class="tier-num">TIER 1</span>
+        <span class="tier-desc">Master co-ordination — all discipline drawings XRef this as positional context.</span>
+        <div class="tier-rule"></div>
+      </div>
+      <div class="tier-row">
+        <div class="drg-node master wide">
+          <div class="drg-badge badge-tier1">MASTER</div>
+          <span class="drg-number">RRP-CRG-C-GA-001</span>
+          <div class="drg-title">Master Site Layout</div>
+          <div class="drg-sub">Building footprints · roads · hardstanding · site boundary · FFL · setting-out grid · XRefs SY-GA-001</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="conn-v"></div>
+
+    <!-- TIER 2 -->
+    <div class="drawing-tier">
+      <div class="tier-heading">
+        <span class="tier-num">TIER 2</span>
+        <span class="tier-desc">Discipline reference drawings — each XRefs the master site layout.</span>
+        <div class="tier-rule"></div>
+      </div>
+      <div class="tier-row">
+
+        <div class="drg-node thirdp">
+          <div class="drg-badge badge-3p">3P</div>
+          <span class="drg-number">WTT BV</span>
+          <div class="drg-title">Biodrying Tunnels</div>
+          <div class="drg-sub">XRef attach only · WTT standard · freeze unwanted layers</div>
+        </div>
+
+        <div class="drg-node civil">
+          <span class="drg-number">RRP-CRG-C-GA-002</span>
+          <div class="drg-title">Civil Ref (Stripped)</div>
+          <div class="drg-sub">Roads · drainage zones · earthworks · services</div>
+        </div>
+
+        <div class="drg-node struct">
+          <span class="drg-number">RRP-CRG-S-GA-001</span>
+          <div class="drg-title">Structural (Stripped)</div>
+          <div class="drg-sub">Frame · foundations · RC details</div>
+        </div>
+
+        <div class="drg-node arch">
+          <span class="drg-number">RRP-CRG-A-GA-004</span>
+          <div class="drg-title">Office &amp; Welfare Block</div>
+          <div class="drg-sub">Floor plan · elevations · locker room layout</div>
+        </div>
+
+        <div class="drg-node arch">
+          <span class="drg-number">RRP-CRG-A-GA-001–003</span>
+          <div class="drg-title">MRF Sheds 1 · 2 · 3</div>
+          <div class="drg-sub">Building GA per shed · footprint · doors · elevations</div>
+        </div>
+
+        <div class="drg-node mech">
+          <span class="drg-number">RRP-CRG-M / E / P</span>
+          <div class="drg-title">Plant, M&amp;E &amp; Process</div>
+          <div class="drg-sub">Equipment · electrical · mechanical · P&amp;ID</div>
+        </div>
+
+        <div class="drg-node planning">
+          <div class="drg-badge badge-issued" style="background:var(--grey)">TBC</div>
+          <span class="drg-number">RRP-CRG-PL-GA-001+</span>
+          <div class="drg-title">Planning</div>
+          <div class="drg-sub">Site location · proposed layout · elevations · CCGBC submission</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="conn-v"></div>
+
+    <!-- TIER 3 -->
+    <div class="drawing-tier">
+      <div class="tier-heading">
+        <span class="tier-num">TIER 3</span>
+        <span class="tier-desc">Detail &amp; production drawings — specific elements, details, and schematics.</span>
+        <div class="tier-rule"></div>
+      </div>
+      <div class="tier-row">
+
+        <div class="drg-node arch">
+          <span class="drg-number">RRP-CRG-A-GA-001</span>
+          <div class="drg-title">MRF Shed 1 GA</div>
+          <div class="drg-sub">1:200 · internal layout</div>
+        </div>
+
+        <div class="drg-node arch">
+          <span class="drg-number">RRP-CRG-A-GA-002</span>
+          <div class="drg-title">MRF Shed 2 GA</div>
+          <div class="drg-sub">1:200 · internal layout</div>
+        </div>
+
+        <div class="drg-node arch">
+          <span class="drg-number">RRP-CRG-A-GA-003</span>
+          <div class="drg-title">MRF Shed 3 GA</div>
+          <div class="drg-sub">1:200 · internal layout</div>
+        </div>
+
+        <div class="drg-node reserved">
+          <div class="drg-badge badge-reserved">Reserved</div>
+          <span class="drg-number">RRP-CRG-M-PP-001</span>
+          <div class="drg-title">Equipment &amp; Plant Layout</div>
+          <div class="drg-sub">All sheds · full conveyor footprint · pending WTT scope</div>
+        </div>
+
+        <div class="drg-node reserved">
+          <div class="drg-badge badge-reserved">Reserved</div>
+          <span class="drg-number">RRP-CRG-M-SC-001</span>
+          <div class="drg-title">Conveyor Sections</div>
+          <div class="drg-sub">MRF1→2→3 · feed heights · sheet count TBD</div>
+        </div>
+
+        <div class="drg-node elec">
+          <span class="drg-number">RRP-CRG-E-SD-001</span>
+          <div class="drg-title">Electrical SLD</div>
+          <div class="drg-sub">Single line diagram · HV/LV</div>
+        </div>
+
+        <div class="drg-node elec">
+          <span class="drg-number">RRP-CRG-E-GA-001</span>
+          <div class="drg-title">Cable Routes</div>
+          <div class="drg-sub">Cable containment · routes 1:200</div>
+        </div>
+
+        <div class="drg-node mech">
+          <span class="drg-number">RRP-CRG-M-SD-001</span>
+          <div class="drg-title">Mechanical Services</div>
+          <div class="drg-sub">Schematic · service runs</div>
+        </div>
+
+        <div class="drg-node process">
+          <span class="drg-number">RRP-CRG-P-SD-001</span>
+          <div class="drg-title">P&amp;ID</div>
+          <div class="drg-sub">Biodrying process · NTS</div>
+        </div>
+
+        <div class="drg-node civil">
+          <span class="drg-number">RRP-CRG-C-DT-001</span>
+          <div class="drg-title">Drainage Details</div>
+          <div class="drg-sub">Pipe runs · inverts · manholes</div>
+        </div>
+
+        <div class="drg-node struct">
+          <span class="drg-number">RRP-CRG-S-DT-001</span>
+          <div class="drg-title">Foundation Details</div>
+          <div class="drg-sub">Slab · foundations · RC details</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /crg-focus -->
+
+  <!-- ── LEGEND ── -->
+  <div class="legend animate delay-6">
+    <div class="legend-title">Drawing types</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:var(--amber-l);border-color:var(--amber)"></div>Survey base</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:var(--sky);border-color:var(--steel)"></div>Master / M&amp;E</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:var(--coral-l);border-color:var(--coral)"></div>Third-party XRef attach</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:var(--green-l);border-color:var(--green)"></div>Civil</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:var(--purple-l);border-color:var(--purple)"></div>Structural / Process</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:var(--teal-l);border-color:var(--teal)"></div>Architectural / MRF</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:var(--amber-l);border-color:var(--amber)"></div>Electrical</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:var(--orange-l);border-color:var(--orange)"></div>Reserved — pending decision</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:var(--grey-l);border-color:var(--grey)"></div>Planning</div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <div class="page-footer animate delay-7">
+    <div class="footer-left">RRP-CRG-CAD-STD-001 Rev C &nbsp;·&nbsp; RRP-CRG-CAD-REG-001 &nbsp;·&nbsp; May 2026</div>
+    <div class="footer-right">RiverRidge Recycling (Portadown) Ltd — Internal document. Not for external distribution without approval.</div>
+  </div>
+
+</div><!-- /page-body -->
+</body>
+</html>
